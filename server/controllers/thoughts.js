@@ -5,8 +5,8 @@ module.exports = {
   try {
     const thoughts = await Thought.find();
     res.json(thoughts);
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(500).json(error);
   }
 },
 async getThoughtById(req, res) {
@@ -17,16 +17,16 @@ async getThoughtById(req, res) {
       return res.status(404).json({ message: 'Thought not found' });
     }
     res.json(thought);
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(500).json(error);
   }
 },
 async postNewThought(req, res) {
   try {
     const newThought = await Thought.create(req.body);
     res.json(newThought);
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(500).json(error);
   }
 
 },
@@ -37,8 +37,8 @@ async updateThoughtById(req, res) {
       return res.status(404).json({ message: 'Thought not found' });
     }
     res.json(updatedThought);
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(500).json(error);
   }
 },
 async deleteThought(req, res) {
@@ -48,8 +48,8 @@ async deleteThought(req, res) {
       return res.status(404).json({ message: 'Thought not found' });
     }
     res.json({ message: 'Thought deleted' });
-  } catch (err) {
-    res.status(500).json(err);
+  } catch (error) {
+    res.status(500).json(error);
   }
 }}
 
